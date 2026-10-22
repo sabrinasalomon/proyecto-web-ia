@@ -1,0 +1,255 @@
+/* ===== Variables de color ===== */
+:root {
+  --fondo: #f2f5f0;
+  --tarjeta: #ffffff;
+  --texto: #1d2b1f;
+  --texto-suave: #5b6b5d;
+  --principal: #2e9e4f;
+  --principal-oscuro: #217a3b;
+  --borde: #d6dfd4;
+  --vivo: #2e9e4f;
+  --muerto: #d64545;
+  --desconocido: #8a8a8a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+  line-height: 1.5;
+}
+
+/* ===== Encabezado ===== */
+.encabezado {
+  background: var(--principal);
+  color: #fff;
+  text-align: center;
+  padding: 32px 16px;
+}
+
+.encabezado h1 {
+  font-size: 2rem;
+}
+
+.contenedor {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* ===== Buscador y filtros ===== */
+.controles {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.buscador {
+  display: flex;
+  gap: 8px;
+}
+
+.buscador input {
+  flex: 1;
+  padding: 10px 14px;
+  font-size: 1rem;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  background: var(--tarjeta);
+  color: var(--texto);
+}
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.filtros label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  gap: 4px;
+}
+
+.filtros select {
+  padding: 8px 10px;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: var(--tarjeta);
+  color: var(--texto);
+}
+
+button {
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--principal);
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--principal-oscuro);
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+button.secundario {
+  background: transparent;
+  color: var(--principal);
+  border: 1px solid var(--principal);
+}
+
+button.secundario:hover:not(:disabled) {
+  background: var(--principal);
+  color: #fff;
+}
+
+/* ===== Pestañas ===== */
+.pestanas {
+  display: flex;
+  gap: 8px;
+  border-bottom: 2px solid var(--borde);
+  margin-bottom: 20px;
+}
+
+.pestana {
+  background: transparent;
+  color: var(--texto-suave);
+  border-radius: 8px 8px 0 0;
+}
+
+.pestana:hover {
+  background: var(--borde);
+}
+
+.pestana.activa {
+  background: var(--principal);
+  color: #fff;
+}
+
+/* ===== Mensajes ===== */
+.mensaje {
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+  background: var(--tarjeta);
+  border: 1px dashed var(--borde);
+  margin-bottom: 20px;
+}
+
+.mensaje.error {
+  color: var(--muerto);
+  border-color: var(--muerto);
+}
+
+.oculto {
+  display: none;
+}
+
+/* ===== Tarjetas de personajes ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.tarjeta {
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.tarjeta img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.tarjeta-cuerpo {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.tarjeta h3 {
+  font-size: 1.1rem;
+}
+
+.tarjeta p {
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+.estado {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--texto);
+}
+
+.estado::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--desconocido);
+}
+
+.estado.alive::before { background: var(--vivo); }
+.estado.dead::before { background: var(--muerto); }
+
+.btn-favorito {
+  margin-top: auto;
+  background: transparent;
+  color: var(--principal);
+  border: 1px solid var(--principal);
+}
+
+.btn-favorito.activo {
+  background: var(--principal);
+  color: #fff;
+}
+
+/* ===== Paginación ===== */
+.paginacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+/* ===== Pie de página ===== */
+.pie {
+  text-align: center;
+  padding: 24px 16px;
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+}
+
+.pie a {
+  color: var(--principal);
+}
+
