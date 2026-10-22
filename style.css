@@ -253,3 +253,27 @@ button.secundario:hover:not(:disabled) {
   color: var(--principal);
 }
 
+/* ===== Diseño para celulares ===== */
+@media (max-width: 600px) {
+  .encabezado h1 {
+    font-size: 1.5rem;
+  }
+
+  .buscador {
+    flex-direction: column;
+  }
+
+  .filtros label {
+    flex: 1 1 45%;
+  }
+
+  .filtros select,
+  #btnLimpiar {
+    width: 100%;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+  }
+}
