@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explorador Rick and Morty</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="encabezado">
+    <h1>Explorador Rick and Morty</h1>
+    <p>Busca personajes, filtra resultados y guarda tus favoritos.</p>
+  </header>
+
+  <main class="contenedor">
+    <!-- Buscador y filtros -->
+    <section class="controles">
+      <form id="formBusqueda" class="buscador">
+        <input type="text" id="inputNombre" placeholder="Buscar por nombre (ej. Rick)">
+        <button type="submit">Buscar</button>
+      </form>
+
+      <div class="filtros">
+        <label>
+          Estado
+          <select id="filtroEstado">
+            <option value="">Todos</option>
+            <option value="alive">Vivo</option>
+            <option value="dead">Muerto</option>
+            <option value="unknown">Desconocido</option>
+          </select>
+        </label>
+
+        <label>
+          Género
+          <select id="filtroGenero">
+            <option value="">Todos</option>
+            <option value="female">Femenino</option>
+            <option value="male">Masculino</option>
+            <option value="genderless">Sin género</option>
+            <option value="unknown">Desconocido</option>
+          </select>
+        </label>
+
+        <label>
+          Especie
+          <select id="filtroEspecie">
+            <option value="">Todas</option>
+            <option value="human">Humano</option>
+            <option value="alien">Alien</option>
+            <option value="humanoid">Humanoide</option>
+            <option value="robot">Robot</option>
+            <option value="animal">Animal</option>
+          </select>
+        </label>
+
+        <button type="button" id="btnLimpiar" class="secundario">Limpiar</button>
+      </div>
+    </section>
+
+    <!-- Pestañas para cambiar entre resultados y favoritos -->
+    <nav class="pestanas">
+      <button type="button" id="tabResultados" class="pestana activa">Resultados</button>
+      <button type="button" id="tabFavoritos" class="pestana">Favoritos (<span id="contadorFavoritos">0</span>)</button>
+    </nav>
+
+    <!-- Mensajes de estado: cargando, sin resultados, error -->
+    <p id="mensaje" class="mensaje oculto"></p>
+
+    <!-- Sección de resultados -->
+    <section id="seccionResultados">
+      <div id="listaPersonajes" class="grid"></div>
+
+      <div class="paginacion">
+        <button type="button" id="btnAnterior" class="secundario">← Anterior</button>
+        <span id="infoPagina">Página 1</span>
+        <button type="button" id="btnSiguiente" class="secundario">Siguiente →</button>
+      </div>
+    </section>
+
+    <!-- Sección de favoritos -->
+    <section id="seccionFavoritos" class="oculto">
+      <div id="listaFavoritos" class="grid"></div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p>Datos obtenidos de <a href="https://rickandmortyapi.com" target="_blank">rickandmortyapi.com</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
